@@ -1,56 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .action-buttons {
-            margin-bottom: 10px; 
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4; /* Light grey background */
+        padding: 20px;
+      }
+      form {
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        margin-bottom: 5px;
+        display: block;
+        color: #333;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* Include padding and border in the element's width */
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50; /* Green */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .user-image {
+        width: 100px; /* Adjust based on preference */
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 50%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <a href="/">Night at Museum</a>
-        <a href="/arts/add"><button>Add Art</button></a>
-    </div> <br><br>
+      <a href="/">Curriculum Vitae</a>
+    </div>
+    <br /><br />
     <div>
-        <img src="<%= arts.photo %>" style="width: 50%;">
-    </div>   
-    <form method="post" action="/arts/<%= arts.id %>/edit/">
-        <div>
-            <label for="name">Art Name</label>
-            <br>
-            <input type="text" name="name" id="name" autocomplete="off" value="<%= arts.name %>">
-        </div>
-        <div>
-            <label for="artist">Artist Name</label>
-            <br>
-            <input type="text" name="artist" id="artist" autocomplete="off" value="<%= arts.artist %>">
-        </div>
-        <div>
-            <label for="date">Created Date</label>
-            <br>
-            <input type="date" name="date" id="date" autocomplete="off" value="<%= arts.formatDate %>">
-        </div>
-        <div>
-            <label for="photo">Art Photo URL</label>
-            <br>
-            <input type="text" name="photo" id="photo" autocomplete="off" value="<%= arts.photo %>">
-        </div>
-        <div>
-            <label for="placeOfOrigin">Art Origin</label>
-            <br>
-            <input type="text" name="placeOfOrigin" id="placeOfOrigin" autocomplete="off" value="<%= arts.placeOfOrigin %>">
-        </div>
-        <div>
-            <label for="description">Art Description</label>
-            <br>
-            <input type="text" name="description" id="description" autocomplete="off" value="<%= arts.description %>">
-        </div>
-        <br>
-        <button type="submit">Update Art</button>
-    </form>    
-</body>
+      <img src="<%= users.image %>" class="user-image" />
+    </div>
+    <form method="post" action="/users/<%= users.id %>/edit/">
+      <div>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="off"
+          value="<%= users.name %>"
+        />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          autocomplete="off"
+          value="<%= users.email %>"
+        />
+      </div>
+      <div>
+        <label for="summary">Summary</label>
+        <input
+          type="text"
+          name="summary"
+          id="summary"
+          autocomplete="off"
+          value="<%= users.summary %>"
+        />
+      </div>
+      <div>
+        <label for="workingExperience">Working Experience</label>
+        <input
+          type="text"
+          name="workingExperience"
+          id="workingExperience"
+          autocomplete="off"
+          value="<%= users.workingExperience %>"
+        />
+      </div>
+      <div>
+        <label for="techSkills">Tech Skills</label>
+        <input
+          type="text"
+          name="techSkills"
+          id="techSkills"
+          autocomplete="off"
+          value="<%= users.techSkills %>"
+        />
+      </div>
+      <div>
+        <label for="image">User Image URL</label>
+        <input
+          type="text"
+          name="image"
+          id="image"
+          autocomplete="off"
+          value="<%= users.image %>"
+        />
+      </div>
+      <br />
+      <button type="submit">Update User</button>
+    </form>
+  </body>
 </html>

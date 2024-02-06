@@ -4,13 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: start;
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 300px;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      .card img {
+        width: 100%;
+        height: auto;
+      }
+      .container {
+        padding: 2px 16px;
+      }
+    </style>
   </head>
   <body>
     <div>
-      <a href="/">Curriculum Vitae</a>
+      <a href="/">Curriculum Vitae</a> <br />
+      <br />
       <a href="/users/add"><button>Add CV</button></a>
     </div>
-    <br /><br />
+    <br />
     <div>
       <form action="/" method="get">
         <input
@@ -26,51 +50,37 @@
           autocomplete="off"
         />
         <button type="submit">Search</button> <br />
-        <br />
       </form>
-      <br />
 
       <p>
-        Jumlah seluruh user adalah <%= notification.dataValues.totalUsers %>.
+        Jumlah seluruh user adalah <%= notification.dataValues.totalUsers %>
+        orang
       </p>
     </div>
-    <a href="/?sort=name"><button>Sort by Name</button></a> <br />
-    <br />
-    <table border="3">
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Name</th>
-          <th>Summary</th>
-          <th>Working Experience</th>
-          <th>Tech Skills</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% users.forEach(el => { %>
-        <tr>
-          <td>
-            <img src="<%= el.image %>" style="width: 50%" />
-          </td>
-          <td><%= el.name %></td>
-          <td><%= el.summary %></td>
-          <td><%= el.workingExperience %></td>
-          <td><%= el.techSkills %></td>
+    <a href="/?sort=name"><button>Sort by Name</button></a> <br /><br />
 
-          <td>
-            <a href="/arts/<%= el.id %>"
+    <div class="card-container">
+      <% users.forEach(el => { %>
+      <div class="card">
+        <img src="<%= el.image %>" alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b><%= el.name %></b></h4>
+          <p>Email: <%= el.email %></p>
+          <p>Summary: <%= el.summary %></p>
+          <p>Working Experience: <%= el.workingExperience %></p>
+          <p>Tech Skills: <%= el.techSkills %></p>
+          <p>
+            <a href="/users/<%= el.id %>"
               ><button style="color: blue">See Detail</button></a
             >
-            <br />
-            <br />
-            <a href="/arts/<%= el.id %>/delete"
+            <br /><br />
+            <a href="/users/<%= el.id %>/delete"
               ><button style="color: red">Delete</button></a
             >
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+          </p>
+        </div>
+      </div>
+      <% }); %>
+    </div>
   </body>
 </html>

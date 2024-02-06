@@ -53,7 +53,6 @@ class Controller {
         image,
         email,
         summary,
-        placeOfOrigin,
         workingExperience,
         techSkills,
       } = req.body;
@@ -62,7 +61,6 @@ class Controller {
         image,
         email,
         summary,
-        placeOfOrigin,
         workingExperience,
         techSkills,
       });
@@ -75,13 +73,13 @@ class Controller {
   static async readDetailUser(req, res) {
     try {
       const { id } = req.params;
-      const arts = await User.findOne({
+      const users = await User.findOne({
         where: {
           id,
         },
       });
 
-      res.render("detail", { arts });
+      res.render("detail", { users });
     } catch (error) {
       res.send(error);
     }
@@ -101,7 +99,7 @@ class Controller {
         updatedAt,
       } = req.body;
 
-      await Art.update(
+      await User.update(
         {
           name,
           image,
@@ -118,6 +116,20 @@ class Controller {
           },
         }
       );
+      res.redirect("/");
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async deleteUser(req, res) {
+    try {
+      const { id } = req.params;
+      await User.destroy({
+        where: {
+          id,
+        },
+      });
       res.redirect("/");
     } catch (error) {
       res.send(error);

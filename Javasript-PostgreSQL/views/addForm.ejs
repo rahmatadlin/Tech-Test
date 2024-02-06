@@ -1,48 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4; /* Light grey background */
+        }
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd; /* Light grey border */
+            box-sizing: border-box; /* Include padding and border in element's width */
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Bootstrap blue */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+    </style>
 </head>
 <body>
     <div>
-        <a href="/">Night at Museum</a>
-        <a href="/arts/add"><button>Add Art</button></a>
-    </div> <br><br>
-    <h2>Add New Art</h2>
-    <form method="post" action="/arts/add">
+        <a href="/">Curriculum Vitae</a>
+        <br />
+    </div>
+    <h2>Add New User</h2>
+    <form method="post" action="/users/add">
         <div>
-            <label id="name">Art Name</label>
-            <br>
-            <input type="text" name="name" id="name" autocomplete="off">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" autocomplete="off" />
         </div>
         <div>
-            <label id="artist">Artist Name</label>
-            <br>
-            <input type="text" name="artist" id="artist" autocomplete="off">
+            <label for="image">Image URL</label>
+            <input type="text" name="image" id="image" autocomplete="off" />
         </div>
         <div>
-            <label id="date">Created Date</label>
-            <br>
-            <input type="date" name="date" id="date" autocomplete="off">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" autocomplete="off" />
         </div>
         <div>
-            <label id="photo">Art Photo URL</label>
-            <br>
-            <input type="text" name="photo" id="photo" autocomplete="off">
+            <label for="summary">Summary</label>
+            <input type="text" name="summary" id="summary" autocomplete="off" />
         </div>
         <div>
-            <label id="placeOfOrigin">Art Origin</label>
-            <br>
-            <input type="text" name="placeOfOrigin" id="placeOfOrigin" autocomplete="off">
+            <label for="workingExperience">Working Experience</label>
+            <input type="text" name="workingExperience" id="workingExperience" autocomplete="off" />
         </div>
         <div>
-            <label id="description">Art Description</label>
-            <br>
-            <input type="text" name="description" id="description" autocomplete="off">
-        </div> <br>
-        <button type="submit">Add Art</button>
+            <label for="techSkills">Tech Skills</label>
+            <input type="text" name="techSkills" id="techSkills" autocomplete="off" />
+        </div>
+
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
