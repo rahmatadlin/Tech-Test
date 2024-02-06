@@ -7,9 +7,14 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "cascade",
+        onUpdate: "cascade"
       },
       name: {
+        type: Sequelize.STRING
+      },
+      image: {
         type: Sequelize.STRING
       },
       email: {
