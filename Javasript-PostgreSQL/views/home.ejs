@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <a href="/">Curriculum Vitae</a>
+      <a href="/users/add"><button>Add CV</button></a>
+    </div>
+    <br /><br />
+    <div>
+      <form action="/" method="get">
+        <input
+          type="text"
+          placeholder="Search by name"
+          name="search"
+          autocomplete="off"
+        />
+        <input
+          type="text"
+          placeholder="or by tech skills"
+          name="searchSkills"
+          autocomplete="off"
+        />
+        <button type="submit">Search</button> <br />
+        <br />
+      </form>
+      <br />
+
+      <p>
+        Jumlah seluruh user adalah <%= notification.dataValues.totalUsers %>.
+      </p>
+    </div>
+    <a href="/?sort=name"><button>Sort by Name</button></a> <br />
+    <br />
+    <table border="3">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Summary</th>
+          <th>Working Experience</th>
+          <th>Tech Skills</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(el => { %>
+        <tr>
+          <td>
+            <img src="<%= el.image %>" style="width: 50%" />
+          </td>
+          <td><%= el.name %></td>
+          <td><%= el.summary %></td>
+          <td><%= el.workingExperience %></td>
+          <td><%= el.techSkills %></td>
+
+          <td>
+            <a href="/arts/<%= el.id %>"
+              ><button style="color: blue">See Detail</button></a
+            >
+            <br />
+            <br />
+            <a href="/arts/<%= el.id %>/delete"
+              ><button style="color: red">Delete</button></a
+            >
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

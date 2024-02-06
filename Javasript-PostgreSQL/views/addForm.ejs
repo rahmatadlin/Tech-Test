@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/">Night at Museum</a>
+        <a href="/arts/add"><button>Add Art</button></a>
+    </div> <br><br>
+    <h2>Add New Art</h2>
+    <form method="post" action="/arts/add">
+        <div>
+            <label id="name">Art Name</label>
+            <br>
+            <input type="text" name="name" id="name" autocomplete="off">
+        </div>
+        <div>
+            <label id="artist">Artist Name</label>
+            <br>
+            <input type="text" name="artist" id="artist" autocomplete="off">
+        </div>
+        <div>
+            <label id="date">Created Date</label>
+            <br>
+            <input type="date" name="date" id="date" autocomplete="off">
+        </div>
+        <div>
+            <label id="photo">Art Photo URL</label>
+            <br>
+            <input type="text" name="photo" id="photo" autocomplete="off">
+        </div>
+        <div>
+            <label id="placeOfOrigin">Art Origin</label>
+            <br>
+            <input type="text" name="placeOfOrigin" id="placeOfOrigin" autocomplete="off">
+        </div>
+        <div>
+            <label id="description">Art Description</label>
+            <br>
+            <input type="text" name="description" id="description" autocomplete="off">
+        </div> <br>
+        <button type="submit">Add Art</button>
+    </form>
+</body>
+</html>
